@@ -7,14 +7,18 @@ Feature: Add dishes to menu
    Given the following restaurants exist
     | name        |
     | NisseKebbab |
-   And the following menus exist
+    | AmberBurger |
+   Given the following menus exist
     | name            | restaurant  |
     | Nisses Takeaway | NisseKebbab |
-   And the following dishes exist
+    | Tasty burgers   | AmberBurger |
+   Given the following dishes exist
     | name       | price | menu            |
     | Kebabrulle | 180   | Nisses Takeaway |
+    | Burger     | 190   | Tasty burgers   |
 
    Scenario: I see dishes in the menu
     Given I am on the restaurant menu page for "Nisses Takeaway"
-    And I should see "Kebabrulle"
+    Then I should see "Kebabrulle"
+    And I should not see "Burger"
     And I should see "180"
