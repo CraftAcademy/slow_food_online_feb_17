@@ -8,11 +8,11 @@ Feature: Add dishes to menu
     | name        |
     | NisseKebbab |
     | AmberBurger |
-   Given the following menus exist
+   And the following menus exist
     | name            | restaurant  |
     | Nisses Takeaway | NisseKebbab |
     | Tasty burgers   | AmberBurger |
-   Given the following dishes exist
+   And the following dishes exist
     | name       | price | menu            |
     | Kebabrulle | 180   | Nisses Takeaway |
 
