@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Dish, type: :model do
   it 'has a valid factory' do
-    expect(FactoryGirl.create(:dish)).to be_valid
+    expect(create(:dish)).to be_valid
   end
 
   describe 'DB schema' do
