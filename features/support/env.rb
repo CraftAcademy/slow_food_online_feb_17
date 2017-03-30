@@ -1,4 +1,5 @@
 require 'cucumber/rails'
+require "factory_girl"
 ActionController::Base.allow_rescue = false
 
 begin
@@ -8,3 +9,5 @@ rescue NameError
 end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
+include FactoryGirl::Syntax::Methods

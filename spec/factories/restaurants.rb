@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :restaurant do
-    name "MyString"
+    name "Nisses"
     street "MyString"
     zip_code 1
     city "MyString"

@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20170330073035) do
     t.datetime "updated_at",                         null: false
   end
 
+  create_table "menus", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "restaurant_id"
+    t.index ["restaurant_id"], name: "index_menus_on_restaurant_id", using: :btree
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "street"
@@ -32,4 +40,5 @@ ActiveRecord::Schema.define(version: 20170330073035) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "menus", "restaurants"
 end
