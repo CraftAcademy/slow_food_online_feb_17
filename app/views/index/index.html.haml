@@ -1,6 +1,21 @@
+%br/
+#map{:style => "width: 900px; height: 400px;"}
+
+  :javascript
+    $(document).ready(function(){
+      console.log( "ready!" );
+
+      new GMaps({
+        div: '#map',
+        lat: -12.043333,
+        lng: -77.028333
+      });
+    });
+  %br/
+
 %h1 List Of Restaurants
 %ul
   - @restaurants.each do |restaurant|
     %li
-      = link_to restaurant.name, restaurant_path(restaurant)
+      = restaurant.name
       %br/

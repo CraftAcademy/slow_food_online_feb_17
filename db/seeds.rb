@@ -16,7 +16,6 @@ Restaurant.delete_all
                    city: city,
                    food_style: food_style,
                    description: description)
-
 end
 
 puts "Created #{Restaurant.count} restaurants"
