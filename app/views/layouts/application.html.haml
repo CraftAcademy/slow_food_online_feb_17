@@ -6,5 +6,21 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    :css
+      .top-bar {background-color: #FFA500;}
+      .menu {background-color: #1F6C87;}
   %body
+    / Top Bar
+    %nav.top-bar.nav-desktop
+      .wrap
+        .top-bar-left
+          %h3.site-logo Slow Food Online
+        .top-bar-right
+          %ul.menu.menu-desktop
+            %li
+              %a{:href => "#"} Registration
+            %li
+              %a{:href => "#"} Login
+
+      
     = yield
