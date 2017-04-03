@@ -23,3 +23,4 @@ I would like to read a description about the dishes
     And I click "Kebabrulle"
     Then I should see "kebabrulle"
     And I should see "description"
+    
