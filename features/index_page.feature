@@ -13,3 +13,7 @@ Feature: index page with a list restaurants
     Given I am on the index page
     And I should see "List Of Restaurants"
     And I should see "NisseKebbab"
+
+  Scenario: Loading the map on the index page
+    Given I am on the index page
+    And the map has been loaded

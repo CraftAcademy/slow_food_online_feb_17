@@ -21,6 +21,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem 'poltergeist'
+  gem 'capybara'
   gem 'launchy'
 end
 
