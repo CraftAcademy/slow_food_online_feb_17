@@ -13,10 +13,10 @@ I would like to read a description about the dishes
     | Nisses Takeaway | NisseKebbab |
     | Tasty burgers   | AmberBurger |
    Given the following dishes exist
-    | name       | price | menu            |
-    | Kebabrulle | 180   | Nisses Takeaway |
-    | Burger     | 190   | Tasty burgers   |
-    | Pizza      | 180   | Nisses Takeaway |
+    | name       | price  | description | menu            |
+    | Kebabrulle | 180    | Xtra Lök    | Nisses Takeaway |
+    | Burger     | 190    | Cheese Dlux | Tasty burgers   |
+    | Pizza      | 180    | Xtra All    | Nisses Takeaway |
 
   Scenario: I see description about the dish
     Given I am on the restaurant menu page for "Nisses Takeaway"
