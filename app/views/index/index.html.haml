@@ -3,5 +3,5 @@
   - @restaurants.each do |restaurant|
     %li
       = restaurant.name
-      Restaurant
+      = link_to restaurant.name, restaurant_path(restaurant)
       %br/
