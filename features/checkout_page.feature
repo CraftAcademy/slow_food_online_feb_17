@@ -18,3 +18,6 @@ Feature: Show order on checkout page
       Given I am on the restaurant menu page for "Nisses Takeaway"
       And I click "Buy" on "Kebabrulle"
       And I click "Checkout"
+      And I should see "Your Shopping Cart"
+      And I should see "Kebabrulle"
+      Then I should see "Total: 180"
