@@ -1,5 +1,7 @@
 require 'cucumber/rails'
 require "factory_girl"
+require 'capybara/poltergeist'
+
 ActionController::Base.allow_rescue = false
 
 begin
@@ -11,3 +13,8 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 include FactoryGirl::Syntax::Methods
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, js_error: false)
+end
+Capybara.javascript_driver = :poltergeist

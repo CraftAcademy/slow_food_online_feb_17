@@ -25,18 +25,6 @@
               %a{:href => "#"} Registration
             %li
               %a{:href => "#"} Login
-  
-    #map{:style => "width: 900px; height: 400px;"}
-      :javascript
-        $(document).ready(function(){
-          console.log( "ready!" );
-
-          new GMaps({
-            div: '#map',
-            lat: -12.043333,
-            lng: -77.028333
-          });
-        });
 
     = yield
 
