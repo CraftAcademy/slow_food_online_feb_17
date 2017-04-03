@@ -13,6 +13,7 @@ gem 'haml-rails'
 gem 'ffaker'
 gem 'foundation-rails'
 gem 'acts_as_shopping_cart'
+gem 'poltergeist'
 
 group :development, :test do
   gem 'pry'
@@ -21,7 +22,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'poltergeist'
   gem 'capybara'
   gem 'launchy'
 end

@@ -1,0 +1,54 @@
+
+.site-logo {
+  color: #fff;
+  line-height: 80px;
+}
+
+.nav-desktop {
+  line-height: 80px;
+  padding: 0;
+  .menu-desktop {
+    line-height: 90px;
+    background-color: transparent;
+    margin: 20px;
+  }
+  a {
+    display: inline-block;
+  }
+}
+
+nav.top-bar.nav-desktop {
+  background-color: #ffa500;
+}
+
+.menu > li > a {
+  color: #fff;
+  display: inline-block;
+  line-height: 90px;
+  padding-bottom: 0;
+  padding-top: 0;
+  &:hover {
+    background-color: rgba(255, 255, 255, .1);
+  }
+}
+
+footer {
+  background-color: #FFA500;
+  padding: 30px 0;
+
+  h4 {
+    color: rgba(255, 255, 255, .8);
+  }
+
+  a {
+    display: block;
+    color: rgba(255, 255, 255, .6);
+    &:hover {
+      display: block;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    &:visited {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
