@@ -21,6 +21,5 @@ I would like to read a description about the dishes
   Scenario: I see description about the dish
     Given I am on the restaurant menu page for "Nisses Takeaway"
     And I click "Kebabrulle"
-    Then I should see "kebabrulle"
+    Then I should see "Kebabrulle"
     And I should see "description"
-    
