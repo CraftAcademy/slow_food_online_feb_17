@@ -13,11 +13,14 @@ Feature: Show order on checkout page
    And the following dishes exist
     | name       | price | menu            |
     | Kebabrulle | 180   | Nisses Takeaway |
+    | Falafel    | 190   | Nisses Takeaway |
 
-    Scenario: I buy a dish and go to checkout
+    Scenario: I buy dishes and go to checkout
       Given I am on the restaurant menu page for "Nisses Takeaway"
       And I click "Buy" on "Kebabrulle"
+      And I click "Buy" on "Falafel"
       And I click "Checkout"
       And I should see "Your Shopping Cart"
       And I should see "Kebabrulle"
-      Then I should see "Total: 180"
+      And I should see "Falafel"
+      Then I should see "Total: 370"
