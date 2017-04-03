@@ -4,7 +4,10 @@
 = javascript_include_tag 'landing_page'
 
 %h1 List Of Restaurants
-
+%h3 List of food category
+= form_tag select_category_path, method: 'post' do |f|
+  =select('post', "category", @restaurants.distinct.pluck(:food_style) {|p| [ p.id , p.food_style ] }, {prompt: 'List of food category'})
+  = submit_tag 'Submit'
 %ul
   - @restaurants.each do |restaurant|
     %li
