@@ -1,8 +1,14 @@
 %h2 Menu
-
-=@restaurant.name
-=@restaurant.menu.name
-
--@restaurant.menu.dishes.each do |dish|
-  =dish.name
-  =dish.price
+= notice
+= @cart_nr
+dishes in cart.
+%p= @restaurant.name
+%p= @restaurant.menu.name
+%h3 Our fine dishes
+- @restaurant.menu.dishes.each do |dish|
+  %div{class: "dish-#{dish.id}"}
+    = dish.name
+    = dish.price
+    = form_tag(items_path, method: 'post') do
+      = submit_tag('Buy')
+      = hidden_field_tag(:dish_id, dish.id)
