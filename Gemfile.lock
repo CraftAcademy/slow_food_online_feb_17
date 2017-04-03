@@ -266,8 +266,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capybara
   acts_as_shopping_cart
+  capybara
   coffee-rails (~> 4.2)
   cucumber-rails
   database_cleaner

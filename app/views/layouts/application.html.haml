@@ -1,20 +1,16 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }/
     %title SlowFoodOnlineFeb17
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
-    %script{:src => "http://maps.google.com/maps/api/js?sensor=tru", :type => "text/javascript"}
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js"}
+    %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' }
+    %script{ src: 'http://maps.google.com/maps/api/js?sensor=tru', :type => 'text/javascript'}
+    %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js' }
 
-    :css
-      .top-bar {background-color: #FFA500;}
-      .menu {background-color: #1F6C87;}
   %body
-
     %nav.top-bar.nav-desktop
       .wrap
         .top-bar-left
@@ -22,30 +18,20 @@
         .top-bar-right
           %ul.menu.menu-desktop
             %li
-              %a{:href => "#"} Registration
+              = link_to 'Registration', '#'
             %li
               %a{:href => "#"} Login
 
     = yield
 
-
-    %footer
-      .wrap.row.small-up-1.medium-up-3
-        .column
-          %h4 Useful Links
-          %hr/
-          %a{:href => "#", :target => "_blank"}
-            %span Menu
-          %br/
-          %a{:href => "#", :target => "_blank"}
-            %span Dishes
-          %br/
-        .column
-          %h4 Site Map
-          %hr/
-          %a{:href => "#", :target => "_blank"}
-            %span About Us
-          %br/
-          %a{:href => "#", :target => "_blank"}
-            %span Contact Us
-          %br/
+  %footer
+    .wrap.row.small-up-1.medium-up-3
+      .column
+        %h4 Site Map
+        %hr/
+        %a{:href => "#", :target => "_blank"}
+          %span About Us
+        %br/
+        %a{:href => "#", :target => "_blank"}
+          %span Contact Us
+        %br/

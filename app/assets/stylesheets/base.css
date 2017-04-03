@@ -53,3 +53,11 @@ footer a:hover{
 footer a:visited{
   color: rgba(255,255,255,0.8);
 }
+
+.top-bar {
+  background-color: #FFA500;
+}
+
+.menu {
+  background-color: #1F6C87;
+}
