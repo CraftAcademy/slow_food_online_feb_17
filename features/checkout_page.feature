@@ -14,6 +14,11 @@ Feature: Show order on checkout page
     | name       | price | menu            |
     | Kebabrulle | 180   | Nisses Takeaway |
 
+    Scenario: I check out and my cart is empty
+     Given I am on the restaurant menu page for "Nisses Takeaway"
+     And I click "Checkout"
+     Then I should see "Please add a dish to your cart before checkout"
+
     Scenario: I buy a dish and go to checkout
       Given I am on the restaurant menu page for "Nisses Takeaway"
       And I click "Buy" on "Kebabrulle"
