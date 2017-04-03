@@ -19,3 +19,4 @@ Feature: Create menu show page
     And I should see "NisseKebbab"
     And I should not see "Tasty burgers"
     Then I should see "Nisses Takeaway"
+    

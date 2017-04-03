@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170330145324) do
+ActiveRecord::Schema.define(version: 20170403080149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,24 @@ ActiveRecord::Schema.define(version: 20170330145324) do
     t.string   "description"
   end
 
+  create_table "shopping_cart_items", force: :cascade do |t|
+    t.integer "owner_id"
+    t.string  "owner_type"
+    t.integer "quantity"
+    t.integer "item_id"
+    t.string  "item_type"
+    t.integer "price_cents",      default: 0,     null: false
+    t.string  "price_currency",   default: "USD", null: false
+    t.integer "shopping_cart_id"
+    t.index ["shopping_cart_id"], name: "index_shopping_cart_items_on_shopping_cart_id", using: :btree
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "dishes", "menus"
   add_foreign_key "menus", "restaurants"
+  add_foreign_key "shopping_cart_items", "shopping_carts"
 end

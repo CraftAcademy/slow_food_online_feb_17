@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'ffaker'
 gem 'foundation-rails'
-
+gem 'acts_as_shopping_cart'
 
 group :development, :test do
   gem 'pry'
