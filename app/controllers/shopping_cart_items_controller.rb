@@ -15,6 +15,7 @@ class ShoppingCartItemsController < ApplicationController
      @cart = ShoppingCart.find(session[:cart_id])
    else
      @cart = ShoppingCart.create
+     session[:cart_id] = @cart.id
    end
  end
 end
