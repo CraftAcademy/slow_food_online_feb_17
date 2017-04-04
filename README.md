@@ -50,4 +50,5 @@ The site address [https://slowfood-online-feb-17.herokuapp.com](https://slowfood
   - **cucumber** to run feature test
 
 * Dependencies:
-  - acts as shoppingcart gem  
+  - acts as shoppingcart gem
+  - devise gem 
