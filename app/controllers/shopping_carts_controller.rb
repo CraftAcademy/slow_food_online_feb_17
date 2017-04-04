@@ -1,8 +1,12 @@
 class ShoppingCartsController < ApplicationController
   before_action :get_shopping_cart
 
+  def finalize
+
+  end
+
   def show
-    
+
   end
 
   private
