@@ -51,4 +51,4 @@ The site address [https://slowfood-online-feb-17.herokuapp.com](https://slowfood
 
 * Dependencies:
   - acts as shoppingcart gem
-  - devise gem 
+  - devise gem
