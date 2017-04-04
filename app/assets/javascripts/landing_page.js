@@ -5,4 +5,4 @@ function initiateMap () {
         lat: 57.7089,
         lng: 11.9746
     });
-};
+}
