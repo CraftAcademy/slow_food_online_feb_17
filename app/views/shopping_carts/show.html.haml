@@ -1,0 +1,17 @@
+%h2 Your Shopping Cart
+%table.shopping-cart
+  %tr
+    %th Name
+    %th Price
+  - @cart.shopping_cart_items.each do |cart_item|
+    %tr
+      %td.product-name
+        = cart_item.item.name
+      %td.product-price
+        = cart_item.item.price
+        SEK
+  %tr
+    %th Total:
+    %td
+      = @cart.total
+      SEK
