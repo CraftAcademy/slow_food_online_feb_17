@@ -22,4 +22,8 @@ Feature: Receipt Page
       And I click "Finalize order"
       And I should see "Thank you for your order"
       And I should see "Kebabrulle"
-      Then I should see "Total: 180"
+      And I should see "Total: 180"
+      Then my order should be marked as paid
+      When I am on the restaurant menu page for "Nisses Takeaway"
+      And I click "Buy" on "Kebabrulle"
+      Then I should see "1 dishes in cart"
