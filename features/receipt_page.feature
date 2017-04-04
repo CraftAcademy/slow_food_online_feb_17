@@ -23,4 +23,3 @@ Feature: Receipt Page
       And I should see "Thank you for your order"
       And I should see "Kebabrulle"
       Then I should see "Total: 180"
-      Then show me the page
