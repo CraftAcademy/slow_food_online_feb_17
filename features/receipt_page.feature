@@ -13,6 +13,7 @@ Feature: Receipt Page
    And the following dishes exist
     | name       | price | menu            |
     | Kebabrulle | 180   | Nisses Takeaway |
+    | Falafel    | 100   | Nisses Takeaway |
 
     Scenario: I complete payment and receive a receipt
       Given I am on the restaurant menu page for "Nisses Takeaway"
@@ -23,7 +24,7 @@ Feature: Receipt Page
       And I should see "Thank you for your order"
       And I should see "Kebabrulle"
       And I should see "Total: 180"
-      Then my order should be marked as paid
+      Then my order should be marked as true
       When I am on the restaurant menu page for "Nisses Takeaway"
-      And I click "Buy" on "Kebabrulle"
+      And I click "Buy" on "Falafel"
       Then I should see "1 dishes in cart"

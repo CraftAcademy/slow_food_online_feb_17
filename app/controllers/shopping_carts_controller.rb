@@ -2,7 +2,7 @@ class ShoppingCartsController < ApplicationController
   before_action :get_shopping_cart
 
   def complete
-
+    @cart.update(paid: 'true')
   end
 
   def show
