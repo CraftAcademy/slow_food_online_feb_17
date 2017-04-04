@@ -17,4 +17,4 @@ Feature: index page with a list restaurants
   @javascript
   Scenario: Loading the map on the index page
     Given I am on the index page
-    And the map has been loaded
+    Then I expect google maps to load
