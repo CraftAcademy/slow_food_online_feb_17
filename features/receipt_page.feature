@@ -21,4 +21,6 @@ Feature: Receipt Page
       And I should see "Total: 180"
       And I click "Finalize order"
       And I should see "Thank you for your order"
-      Then I should see "Kebabrulle"
+      And I should see "Kebabrulle"
+      Then I should see "Total: 180"
+      Then show me the page
