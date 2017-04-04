@@ -7,7 +7,7 @@ dishes in cart.
 %h3 Our fine dishes
 - @restaurant.menu.dishes.each do |dish|
   %div{class: "dish-#{dish.id}"}
-    = dish.name
+    = link_to dish.name, dish_path(dish)
     = dish.price
     = form_tag(items_path, method: 'post') do
       = submit_tag('Buy')
