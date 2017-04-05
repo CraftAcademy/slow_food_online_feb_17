@@ -13,7 +13,6 @@ gem 'haml-rails'
 gem 'ffaker'
 gem 'foundation-rails'
 gem 'acts_as_shopping_cart'
-gem 'poltergeist'
 gem 'rails-assets-gmaps', source: 'https://rails-assets.org'
 gem 'devise'
 
@@ -26,6 +25,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+  gem 'poltergeist'
 end
 
 group :development do
