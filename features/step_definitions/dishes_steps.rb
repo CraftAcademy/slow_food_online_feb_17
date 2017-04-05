@@ -15,3 +15,8 @@ Then(/^the "([^"]*)" dish is saved on the database$/) do |dish_name|
   dish = Dish.find_by(name: dish_name)
   expect(dish).not_to be_nil
 end
+
+Then(/^the "([^"]*)" dish should not be on the system$/) do |dish_name|
+  dish = Dish.find_by(name: dish_name)
+  expect(dish).not_to be_empty
+end

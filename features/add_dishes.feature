@@ -24,12 +24,11 @@ Scenario: Add dish successfully
   And the "Pizza" dish is saved on the database
 
 Scenario: Unsuccessful adding of dish
-  Given I am on the new dish page
+  Given I am on the restaurant "NisseKebbab" new dish page
   Then I should see "Add new dish"
-  When I fill in "name" with "Pizza"
-  And I fill in "price" with " "
-  And I fill in "description" with "Xtra All"
-  And I select "Takeaway" from "menu"
+  When I fill in "dish_name" with "Pizza"
+  And I fill in "dish_price" with " "
+  And I fill in "dish_description" with "Xtra All"
   Then I click "Add dish"
   Then I should see "Please make sure to fill in all the fields"
   And the "Pizza" dish should not be on the system

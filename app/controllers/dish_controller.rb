@@ -13,6 +13,7 @@ class DishController < ApplicationController
     @menu = Menu.find(params[:menu_id])
     @dish = Dish.new(dish_params)
     @dish.save
+    
     flash[:notice] = "A new dish has been added to #{@menu.name} menu"
     redirect_to restaurant_menu_path(@menu.restaurant, @menu)
   end
