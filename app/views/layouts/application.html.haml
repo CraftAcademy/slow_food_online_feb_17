@@ -28,6 +28,8 @@
             %li
               - if session[:cart_id]
                 = link_to 'Cart', cart_path(session[:cart_id])
+                = @cart.shopping_cart_items.count
+                items in cart
     %p.notice= notice
     %p.alert= alert
     = yield
