@@ -21,7 +21,7 @@ Feature: Add dish to cart
     And I should see "Falafel"
     And I click "Buy" on "Kebabrulle"
     And I should see "Kebabrulle has been added to your order"
-    Then I should see "1 items"
+    Then I should see "1 items in cart"
 
   Scenario: I buy a second dish and put it in the cart
     Given I am on the restaurant menu and have one item in my cart
