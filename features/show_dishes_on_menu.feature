@@ -1,4 +1,4 @@
-Feature: Add dishes to menu
+Feature: Show dishes on menu page
   As a user
   In order to decide from various dishes from a restaurant
   I would like to see many dishes in the restaurant´s menu
