@@ -25,8 +25,8 @@
               = link_to 'Sign up', new_user_registration_path
             %li
               = link_to 'Sign in', new_user_session_path
-            %li
-              - if session[:cart_id]
+            - if session[:cart_id]
+              %li
                 = link_to 'Cart', cart_path(session[:cart_id])
                 = @cart.shopping_cart_items.count
                 items in cart

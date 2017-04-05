@@ -27,5 +27,4 @@ Feature: Add dish to cart
     Given I am on the restaurant menu and have one item in my cart
     And I click "Buy" on "Falafel"
     And I should see "Falafel has been added to your order"
-    Then show me the page
     Then I should see "2 items in cart"
