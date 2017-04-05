@@ -13,3 +13,8 @@ Feature: index page with a list restaurants
     Given I am on the index page
     And I should see "List Of Restaurants"
     And I should see "NisseKebbab"
+
+  @javascript
+  Scenario: Loading the map on the index page
+    Given I am on the index page
+    Then I expect google maps to load

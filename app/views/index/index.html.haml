@@ -1,3 +1,7 @@
+#map{style: 'width: 800px; height: 400px'}
+%script(src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initiateMap" async defer)
+= javascript_include_tag 'landing_page'
+
 %h1 List Of Restaurants
 %h3 List of food category
 = form_tag select_category_path, method: 'post' do |f|
@@ -6,5 +10,6 @@
 %ul
   - @restaurants.each do |restaurant|
     %li
+      = restaurant.name
       = link_to restaurant.name, restaurant_path(restaurant)
       %br/
