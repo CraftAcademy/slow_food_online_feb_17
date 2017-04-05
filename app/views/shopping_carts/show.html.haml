@@ -15,3 +15,5 @@
     %td
       = @cart.total
       SEK
+= form_tag(complete_path(cart_id: session[:cart_id]), method: 'post') do
+  = submit_tag('Finalize order')

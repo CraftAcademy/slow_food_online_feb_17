@@ -1,0 +1,6 @@
+%h2 Thank you for your order
+- @cart.shopping_cart_items.each do |cart_item|
+  = cart_item.item.name
+  %p Total:
+  = @cart.total
+  SEK

@@ -1,8 +1,13 @@
 class ShoppingCartsController < ApplicationController
   before_action :get_shopping_cart
 
+  def complete
+    @cart.update(paid: 'true')
+    session.delete(:cart_id)
+  end
+
   def show
-    
+
   end
 
   private
