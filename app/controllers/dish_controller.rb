@@ -4,7 +4,4 @@ class DishController < ApplicationController
     @dish = Dish.find(params[:id])
   end
 
-  def new
-  end
-  
 end

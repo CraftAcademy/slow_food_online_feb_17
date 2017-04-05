@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :shopping_carts, only: [:show], as: :cart
 
-  resources :dish, only: [:show, :new]
+  resources :dish, only: [:show]
 
   resources :restaurants, only: [:show, :new, :create] do
     resources :menus, only: [:show]
