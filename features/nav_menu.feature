@@ -8,11 +8,7 @@ Feature: Create navigation menu
 
   Scenario: I navigate to Home page
     And I click "Home"
-    Then I should see "index page"
-
-  Scenario: I navigate to the restaurant show page
-    And I click "Restaurants"
-    Then I should see "Restaurants"
+    Then I should see "Slow Food Online"
 
   Scenario: I navigate to Sign up page
     And I click "Sign up"
