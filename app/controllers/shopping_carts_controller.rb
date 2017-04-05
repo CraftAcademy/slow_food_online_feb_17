@@ -3,6 +3,7 @@ class ShoppingCartsController < ApplicationController
 
   def complete
     @cart.update(paid: 'true')
+    session.delete(:cart_id)
   end
 
   def show

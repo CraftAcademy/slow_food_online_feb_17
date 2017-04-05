@@ -27,5 +27,5 @@ Feature: Receipt Page
       Then my order should be marked as true
       When I am on the restaurant menu page for "Nisses Takeaway"
       And I click "Buy" on "Falafel"
-      Given there is "cart_id" cookie set to "123"
+      Given there is a shopping cart saved in a cookie
       Then I should see "1 dishes in cart"

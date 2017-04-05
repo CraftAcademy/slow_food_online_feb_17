@@ -1,5 +1,6 @@
 require 'cucumber/rails'
 require "factory_girl"
+require 'capybara/poltergeist'
 ActionController::Base.allow_rescue = false
 
 begin
