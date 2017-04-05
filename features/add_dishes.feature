@@ -14,14 +14,13 @@ Feature: Add dishes to restaurant
     | Tasty burgers   | AmberBurger |
 
 Scenario: Add dish successfully
-  Given I am on the new dish page
+  Given I am on the restaurant "NisseKebbab" new dish page
   Then I should see "Add new dish"
-  When I fill in "name" with "Pizza"
-  And I fill in "price" with "180"
-  And I fill in "description" with "Xtra All"
-  And I select "Takeaway" from "menu"
+  When I fill in "dish_name" with "Pizza"
+  And I fill in "dish_price" with "180"
+  And I fill in "dish_description" with "Xtra All"
   Then I click "Add dish"
-  Then I should see "A new dish has been added to Takeaway menu"
+  Then I should see "A new dish has been added to Nisses Takeaway menu"
   And the "Pizza" dish is saved on the database
 
 Scenario: Unsuccessful adding of dish
