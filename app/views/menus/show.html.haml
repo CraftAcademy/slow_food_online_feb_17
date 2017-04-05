@@ -13,4 +13,4 @@ dishes in cart.
       = submit_tag('Buy')
       = hidden_field_tag(:dish_id, dish.id)
 - if session[:cart_id]
-  = link_to 'Checkout', cart_path(session[:cart_id])
+  = link_to 'Checkout', cart_path(session[:cart_id]), class: 'Checkout'
