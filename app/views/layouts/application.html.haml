@@ -11,8 +11,6 @@
     %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js' }
 
   %body
-    %p.notice= notice
-    %p.alert= alert
     %nav.top-bar.nav-desktop
       .wrap
         .top-bar-left
@@ -20,18 +18,17 @@
         .top-bar-right
           %ul.menu.menu-desktop
             %li
-              %a.active{:href => "#home"} Home
+              = link_to 'Home', root_path
             %li
-              %a{:href => "#news"} News
+              = link_to 'Restaurants', '#'
             %li
-              %a{:href => "#contact"} Contact
+              = link_to 'Sign up', new_user_registration_path
             %li
-              %a{:href => "#about"} About
+              = link_to 'Sign in', new_user_session_path
             %li
-              = link_to 'Registration', '#'
-            %li
-              %a{:href => "#"} Login
-    %br/
+              - if session[:cart_id]
+                = link_to 'Checkout', cart_path(session[:cart_id])    %p.notice= notice
+    %p.alert= alert
     = yield
 
   %footer
