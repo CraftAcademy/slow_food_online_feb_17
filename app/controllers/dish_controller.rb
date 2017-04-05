@@ -16,8 +16,8 @@ class DishController < ApplicationController
       flash[:notice] = "A new dish has been added to #{@menu.name} menu"
       redirect_to restaurant_menu_path(@menu.restaurant, @menu)
     else
-      flash[:notice] = "Please make sure to fill in all the fields"
-      redirect_to restaurant_menu_path(@menu.restaurant, @menu)
+      flash[:notice] = 'Please make sure to fill in all the fields'
+      render 'new'
     end
   end
 
