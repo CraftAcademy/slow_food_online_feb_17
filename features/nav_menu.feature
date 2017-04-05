@@ -18,6 +18,10 @@ I would like a navigation menu in the header
     And I click "Registration"
     Then I should see "Registration page"
 
+  Scenario: I navigate to Sign in page
+    And I click "Sign in"
+    Then I should see "Sign in"
+
   Scenario: I navigate to Home page
     And I click "Home"
     Then I should see "index page"

@@ -20,10 +20,18 @@
         .top-bar-right
           %ul.menu.menu-desktop
             %li
+              %a.active{:href => "#home"} Home
+            %li
+              %a{:href => "#news"} News
+            %li
+              %a{:href => "#contact"} Contact
+            %li
+              %a{:href => "#about"} About
+            %li
               = link_to 'Registration', '#'
             %li
               %a{:href => "#"} Login
-
+    %br/
     = yield
 
   %footer
