@@ -12,10 +12,13 @@ class DishController < ApplicationController
   def create
     @menu = Menu.find(params[:menu_id])
     @dish = Dish.new(dish_params)
-    @dish.save
-    
-    flash[:notice] = "A new dish has been added to #{@menu.name} menu"
-    redirect_to restaurant_menu_path(@menu.restaurant, @menu)
+    if @dish.save
+      flash[:notice] = "A new dish has been added to #{@menu.name} menu"
+      redirect_to restaurant_menu_path(@menu.restaurant, @menu)
+    else
+      flash[:notice] = "Please make sure to fill in all the fields"
+      redirect_to restaurant_menu_path(@menu.restaurant, @menu)
+    end
   end
 
   private
