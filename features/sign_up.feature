@@ -6,7 +6,6 @@ Feature: Create the registration form
   Scenario: I create an account
    Given I am on the registration page
    Then I should see "Sign up"
-   Then show me the page
    When I fill in "Name" with "Sara"
    And I fill in "Email" with "sara@sara.com"
    And I fill in "Password" with "12345678"

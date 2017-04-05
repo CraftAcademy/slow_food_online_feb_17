@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :shopping_cart_items, only: [:create], as: :items
 
   resources :shopping_carts, only: [:show], as: :cart
+  post "/complete", controller: :shopping_carts, action: :complete
 
   resources :dish, only: [:show]
 
