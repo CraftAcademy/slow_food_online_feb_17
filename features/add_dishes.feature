@@ -1,24 +1,35 @@
-Feature: Add dishes to menu
-  As a user
-  In order to decide from various dishes from a restaurant
-  I would like to see many dishes in the restaurant´s menu
+Feature: Add dishes to restaurant
+  As a restaurant owner
+  In order to manage my menu
+  I would like to be able to add dishes on my menu
 
   Background:
    Given the following restaurants exist
     | name        |
     | NisseKebbab |
     | AmberBurger |
-   Given the following menus exist
+   And the following menus exist
     | name            | restaurant  |
     | Nisses Takeaway | NisseKebbab |
     | Tasty burgers   | AmberBurger |
-   Given the following dishes exist
-    | name       | price | menu            |
-    | Kebabrulle | 180   | Nisses Takeaway |
-    | Burger     | 190   | Tasty burgers   |
 
-   Scenario: I see dishes in the menu
-    Given I am on the restaurant menu page for "Nisses Takeaway"
-    Then I should see "Kebabrulle"
-    And I should not see "Burger"
-    And I should see "180"
+Scenario: Add dish successfully
+  Given I am on the restaurant "NisseKebbab" new dish page
+  Then I should see "Add new dish"
+  When I fill in "dish_name" with "Pizza"
+  And I fill in "dish_price" with "180"
+  And I fill in "dish_description" with "Xtra All"
+  Then I click "Add dish"
+  Then I should see "A new dish has been added to Nisses Takeaway menu"
+  And the "Pizza" dish is saved on the database
+
+Scenario: Unsuccessful adding of dish
+  Given I am on the restaurant "NisseKebbab" new dish page
+  Then I should see "Add new dish"
+  When I fill in "dish_name" with "Pizza"
+  And I fill in "dish_price" with " "
+  And I fill in "dish_description" with "Xtra All"
+  Then I click "Add dish"
+  Then I should see "Please make sure to fill in all the fields correctly"
+  And I should see "Price can't be blank"
+  And the "Pizza" dish should not be on the system

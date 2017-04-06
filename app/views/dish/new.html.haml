@@ -1,0 +1,19 @@
+.row
+  .medium-8.medium-centered
+    %h2 Add new dish to '#{@menu.name}' menu
+    - if @dish.errors.any?
+      .callout.small.alert
+        %ul
+          Please make sure to fill in all the fields correctly
+        - @dish.errors.full_messages.each do |error|
+          %li
+            = error
+
+    = form_for [@menu.restaurant, @menu, @dish], url: restaurant_menu_dish_index_path do |f|
+      = f.label :name
+      = f.text_field :name
+      = f.label :price
+      = f.number_field :price
+      = f.label :description
+      = f.text_area :description
+      = f.submit "Add dish", class: 'button expanded'
