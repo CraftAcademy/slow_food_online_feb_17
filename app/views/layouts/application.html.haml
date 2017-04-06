@@ -11,8 +11,6 @@
     %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js' }
 
   %body
-    %p.notice= notice
-    %p.alert= alert
     - if current_user
       = link_to 'Sign Out', destroy_user_session_path, {method: :delete}
     %nav.top-bar.nav-desktop
@@ -22,10 +20,18 @@
         .top-bar-right
           %ul.menu.menu-desktop
             %li
-              = link_to 'Registration', '#'
+              = link_to 'Home', root_path
             %li
-              %a{:href => "#"} Login
-    
+              = link_to 'Sign up', new_user_registration_path
+            %li
+              = link_to 'Sign in', new_user_session_path
+            - if session[:cart_id]
+              %li
+                = link_to 'Cart', cart_path(session[:cart_id])
+                = @cart.shopping_cart_items.count
+                items in cart
+    %p.notice= notice
+    %p.alert= alert
     = yield
 
   %footer
