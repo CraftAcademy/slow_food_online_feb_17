@@ -1,16 +1,20 @@
-%h2 Menu
+%h2
+  Menu  #{@restaurant.menu.name}
+%h3
+  Restaurant #{@restaurant.name}
 = notice
 = @cart_nr
 dishes in cart.
-%p= @restaurant.name
-%p= @restaurant.menu.name
 %h3 Our fine dishes
-- @restaurant.menu.dishes.each do |dish|
-  %div{class: "dish-#{dish.id}"}
-    = link_to dish.name, dish_path(dish)
-    = dish.price
-    = form_tag(items_path, method: 'post') do
-      = submit_tag('Buy')
-      = hidden_field_tag(:dish_id, dish.id)
+%h2 Category
+- @restaurant.menu.dishes.distinct.pluck(:category).uniq.each do |category|
+  %h3= category
+  - @restaurant.menu.dishes.where(category: category).each do |dish|
+    %div{class: "dish-#{dish.id}"}
+      = link_to dish.name, dish_path(dish)
+      = dish.price
+      = form_tag(items_path, method: 'post') do
+        = submit_tag('Buy')
+        = hidden_field_tag(:dish_id, dish.id)
 - if session[:cart_id]
   = link_to 'Checkout', cart_path(session[:cart_id]), class: 'Checkout'

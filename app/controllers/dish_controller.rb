@@ -26,6 +26,7 @@ class DishController < ApplicationController
     params.require(:dish).permit(:name,
                                  :price,
                                  :description,
+                                 :category,
                                  :menu_id)
   end
 end
