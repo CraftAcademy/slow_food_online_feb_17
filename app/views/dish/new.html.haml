@@ -4,6 +4,7 @@
     - if @dish.errors.any?
       .callout.small.alert
         %ul
+          Please make sure to fill in all the fields correctly
         - @dish.errors.full_messages.each do |error|
           %li
             = error

@@ -30,6 +30,6 @@ Scenario: Unsuccessful adding of dish
   And I fill in "dish_price" with " "
   And I fill in "dish_description" with "Xtra All"
   Then I click "Add dish"
-  Then I should see "Please make sure to fill in all the fields"
+  Then I should see "Please make sure to fill in all the fields correctly"
   And I should see "Price can't be blank"
   And the "Pizza" dish should not be on the system
