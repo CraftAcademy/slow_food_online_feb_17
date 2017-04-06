@@ -12,7 +12,7 @@ Feature: Visitor sign in/sign out
     Given I am on the sign in page
     And I fill in "Email" with "nubbe@nubbe.com"
     And I fill in "Password" with "12345678"
-    And I click "Sign in"
+    And I click button "Sign in"
     Then I should see "Signed in successfully."
 
   Scenario: User can sign out
