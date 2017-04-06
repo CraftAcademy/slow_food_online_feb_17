@@ -52,6 +52,7 @@ The site address [https://slowfood-online-feb-17.herokuapp.com](https://slowfood
 * Dependencies:
   - acts as shoppingcart gem
   - devise gem
+  - To be able to run poltergeist you need PhantomJS, run:
   ```
   $brew install phantomjs
   ```
