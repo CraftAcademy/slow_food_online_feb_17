@@ -8,7 +8,7 @@ class ShoppingCartsController < ApplicationController
   end
 
   def create
-    charge = StripePayment.perform_payment(params, @cart)
+    charge = StripePayment.perform_transaction(params, @cart)
     if charge.class == Stripe::Charge
       redirect_to complete_path, notice: 'Transaction completed'
     else
