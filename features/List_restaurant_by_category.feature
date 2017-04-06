@@ -12,9 +12,8 @@ Feature: index page with a list restaurants
 
    Scenario: select restaurant by category
      Given I am on the index page
-     And I should see drop down menu "List of food category"
+     And I should see drop down menu "Choose your style of food!"
      And I select "Pizza" from "post_category"
      And I click "Submit"
      And I should see "Nisse pizza"
      And I should not see "Nisse kebab"
-    

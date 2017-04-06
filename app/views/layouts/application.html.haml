@@ -2,7 +2,7 @@
 %html
   %head
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }/
-    %title SlowFoodOnlineFeb17
+    %title Slow food online
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
@@ -16,7 +16,7 @@
     %nav.top-bar.nav-desktop
       .wrap
         .top-bar-left
-          %h3.site-logo Slow Food Online
+          = image_tag('slofo.png')
         .top-bar-right
           %ul.menu.menu-desktop
             %li
@@ -25,11 +25,14 @@
               = link_to 'Sign up', new_user_registration_path
             %li
               = link_to 'Sign in', new_user_session_path
-            - if session[:cart_id]
-              %li
+            %li
+              - if session[:cart_id]
+                = link_to 'Checkout', cart_path(session[:cart_id]), class: 'Checkout'
+            %li
+              - if session[:cart_id]
                 = link_to 'Cart', cart_path(session[:cart_id])
                 = @cart.shopping_cart_items.count
-                items in cart
+                Items in cart
     %p.notice= notice
     %p.alert= alert
     = yield

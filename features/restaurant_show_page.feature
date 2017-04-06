@@ -14,7 +14,6 @@ Feature: Restaurant show page
   Scenario:
     Given I am on the index page
     When I click "NisseKebbab"
-    Then I should see "Restaurant"
     And I should see "NisseKebbab"
     And I should see "God Kebib med såååås"
     And I should see "Kebabvägen 1"
