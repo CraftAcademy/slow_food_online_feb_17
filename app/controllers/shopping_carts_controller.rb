@@ -12,10 +12,9 @@ class ShoppingCartsController < ApplicationController
     if charge.class == Stripe::Charge
       redirect_to complete_path, notice: 'Transaction completed'
     else
-      flash[:notice] = 'Oops, something went wrong.'
+      flash[:notice] = charge
       redirect_to cart_path(@cart)
     end
-
   end
 
   def show

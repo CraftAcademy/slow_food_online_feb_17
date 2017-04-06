@@ -33,13 +33,10 @@ end
 And(/^I check out but my card is declined$/) do
   StripeMock.prepare_card_error(:card_declined)
   steps %q{
-    And I am on the "cart" page
-    When I click the "Pay with Card" stripe button
-    And I fill in appropriate card details
     And I submit the stripe form
   }
 end
 
-Then(/^I should be on the "([^"]*)" page$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+And (/^I should be on the checkout page$/) do
+  expect(current_path).to eq cart_path(ShoppingCart.last)
 end

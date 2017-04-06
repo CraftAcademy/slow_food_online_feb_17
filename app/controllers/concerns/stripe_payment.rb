@@ -4,7 +4,7 @@ module StripePayment
   def self.perform_transaction(params, cart)
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],
-      source: params[:stripeToken]
+      source: stripe_token(params)
     )
 
     charge = Stripe::Charge.create(
@@ -13,7 +13,17 @@ module StripePayment
       description: 'Slow Food order',
       currency: 'sek'
     )
-
     return charge
+  rescue => e
+    [e.message, 'Please try again'].join(' ')
+  end
+
+  private
+  def self.stripe_token(params)
+    Rails.env.test? ? generate_test_token : params[:stripeToken]
+  end
+
+  def self.generate_test_token
+    StripeMock.create_test_helper.generate_card_token
   end
 end
