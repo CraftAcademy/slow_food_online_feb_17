@@ -19,6 +19,7 @@ module StripePayment
   end
 
   private
+
   def self.stripe_token(params)
     Rails.env.test? ? generate_test_token : params[:stripeToken]
   end
