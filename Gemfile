@@ -16,6 +16,7 @@ gem 'acts_as_shopping_cart'
 gem 'rails-assets-gmaps', source: 'https://rails-assets.org'
 gem 'devise'
 gem 'stripe-rails'
+gem 'stripe', '~> 1.55.0'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -28,6 +29,7 @@ group :development, :test do
   gem 'launchy'
   gem 'poltergeist'
   gem 'dotenv-rails'
+  gem 'stripe-ruby-mock', '~> 2.3.1', require: 'stripe_mock'
 end
 
 group :development do

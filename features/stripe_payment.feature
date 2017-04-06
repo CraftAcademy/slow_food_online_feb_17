@@ -23,3 +23,10 @@ Feature: As a User
     And I fill in my card details on the stripe form
     And I submit the stripe form
     Then my order should be marked as true
+
+  @stripe
+  Scenario: Redirects to carts page on error
+  Given I register as a user with username "Fabian" and email "fabian@random.com"
+  And I check out but my card is declined
+  Then I should be on the "cart" page
+  Then I should see "The card was declined Please try again"
