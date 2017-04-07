@@ -24,8 +24,9 @@ Feature: Rate restaurant on checkout page
       And I click "Checkout"
       And I should see "Total: 180"
       And I click "Finalize order"
-      Then show me the page
       And I should see "Thank you for your order"
       And I should see "Rating 3"
-      And I select "5" from "Rating"
+      And I select "5" from "rating_rating"
+      And I click "Rating"
+      Then show me the page
       Then I should see "Rating 3.16"
