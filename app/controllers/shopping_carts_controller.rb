@@ -2,11 +2,16 @@ class ShoppingCartsController < ApplicationController
   before_action :get_shopping_cart
 
   def complete
-    @rest = @cart.shopping_cart_items[0].item.menu.restaurant
-    @rating = Rating.find_by(restaurant_id: @rest.id)
     @cartid = session[:cart_id]
     @cart.update(paid: 'true')
     session.delete(:cart_id)
+  end
+
+  def show
+
+  end
+
+  def rate
     if params[:rating]
       count = @rating.counter + 1
       if params[:rating][:rating].to_f > @rating.rating
@@ -16,10 +21,7 @@ class ShoppingCartsController < ApplicationController
       end
       @rating.update(rating: rat , counter: count.to_i)
     end
-  end
-
-  def show
-
+    render :complete
   end
 
   private
@@ -30,5 +32,7 @@ class ShoppingCartsController < ApplicationController
     else
       @cart = ShoppingCart.find(params[:cart_id])
     end
+    @rest = @cart.shopping_cart_items[0].item.menu.restaurant
+    @rating = Rating.find_by(restaurant_id: @rest.id)
   end
 end

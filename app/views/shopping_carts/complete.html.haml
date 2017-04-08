@@ -10,6 +10,6 @@ Rating
 = image_tag('rate_l.png')
 = @rating.rating.round(2)
 %br
-= form_for [@rating], url: complete_path(cart_id: @cartid),method: 'post' do |f|
+= form_for [@rating], url: rate_path(cart_id: @cartid),method: 'post' do |f|
   = f.select(:rating, ['1','2','3','4','5'])
   = f.submit "Rating"
