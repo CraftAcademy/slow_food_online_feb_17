@@ -14,3 +14,4 @@ Feature: Create account for restaurant
     And I fill in "Description" with "God kebibpizza med såååås"
     And I click "Submit"
     And I should see "Restaurant successfully created"
+    Then I should see "Leffes pizza" start rating should be "3.0"

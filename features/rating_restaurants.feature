@@ -13,10 +13,10 @@ Feature: Rate restaurant on checkout page
    And the following dishes exist
     | name       | price | menu            |
     | Kebabrulle | 180   | Nisses Takeaway |
-    | Falafel    | 100   | Nisses Takeaway |
    And the following rating exist
     | rating | counter  | restaurant    |
     | 3      | 30       | NisseKebbab   |
+
 
     Scenario: I complete payment and receive a receipt
       Given I am on the restaurant menu page for "Nisses Takeaway"
@@ -28,5 +28,4 @@ Feature: Rate restaurant on checkout page
       And I should see "Rating 3"
       And I select "5" from "rating_rating"
       And I click "Rating"
-      Then show me the page
       Then I should see "Rating 3.16"
