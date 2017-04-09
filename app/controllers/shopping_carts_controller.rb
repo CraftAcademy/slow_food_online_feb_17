@@ -21,7 +21,6 @@ class ShoppingCartsController < ApplicationController
       end
       @rating.update(rating: rat , counter: count.to_i)
     end
-    @cartid = params[:cart_id]
     render :complete
   end
 
@@ -33,7 +32,6 @@ class ShoppingCartsController < ApplicationController
     else
       @cart = ShoppingCart.find(params[:cart_id])
     end
-    @rest = @cart.shopping_cart_items[0].item.menu.restaurant
-    @rating = Rating.find_by(restaurant_id: @rest.id)
+    @rating = Rating.find_by(restaurant_id: @cart.shopping_cart_items[0].item.menu.restaurant.id)
   end
 end
