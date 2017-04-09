@@ -12,21 +12,24 @@ class ShoppingCartsController < ApplicationController
   end
 
   def rate
+    @cartid = params[:cart_id]
     if params[:rating]
       count = @rating.counter + 1
       if params[:rating][:rating].to_f > @rating.rating
         rat = (params[:rating][:rating].to_f / count.to_f ) + @rating.rating
       else
-        rat = (params[:rating][:rating].to_f / count.to_f ) - @rating.rating
+        rat = @rating.rating - (params[:rating][:rating].to_f / count.to_f )
       end
       @rating.update(rating: rat , counter: count.to_i)
     end
+    @cartid = params[:cart_id]
     render :complete
   end
 
   private
 
   def get_shopping_cart
+    @cartid = session[:cart_id]
     if session[:cart_id]
       @cart = ShoppingCart.find(session[:cart_id])
     else

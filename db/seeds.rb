@@ -1,6 +1,6 @@
 require 'ffaker'
 
-Restaurant.delete_all
+# Restaurant.delete_all
 
 5.times do
   name= FFaker::Name.first_name + "'s Restaurant"
@@ -10,7 +10,7 @@ Restaurant.delete_all
   food_style= FFaker::Food.meat
   description= FFaker::Sport.name
 
- Restaurant.create(name: name,
+t = Restaurant.create(name: name,
                    street: street,
                    zip_code: zip_code,
                    city: city,
@@ -21,6 +21,7 @@ Restaurant.delete_all
   FactoryGirl.create(:dish, menu: menu, name: 'Burger')
   FactoryGirl.create(:dish, menu: menu, name: 'Hot dog')
 
+ Rating.create(rating: 3.0, counter: 30, restaurant: t)
 end
 
 puts "Created #{Restaurant.count} restaurants"

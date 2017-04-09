@@ -8,10 +8,13 @@ Feature: index page with a list restaurants
     Given the following restaurants exist
     | name        |
     | NisseKebbab |
+    And the following rating exist
+    | rating | counter  | restaurant    |
+    | 3      | 30       | NisseKebbab   |
 
   Scenario: viewing list of restaurants
     Given I am on the index page
-    And I should see "List Of Restaurants"
+    And I should see "List of Restaurants"
     And I should see "NisseKebbab"
 
   @javascript

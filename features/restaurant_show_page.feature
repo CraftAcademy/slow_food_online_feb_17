@@ -10,6 +10,9 @@ Feature: Restaurant show page
     Given the following menus exist
      | name            | restaurant  |
      | Nisses Takeaway | NisseKebbab |
+     And the following rating exist
+     | rating | counter  | restaurant    |
+     | 3      | 30       | NisseKebbab   |
 
   Scenario:
     Given I am on the index page

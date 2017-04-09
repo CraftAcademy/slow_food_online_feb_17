@@ -9,6 +9,11 @@ Feature: index page with a list restaurants
      | Nisse pizza | Pizza      |
      | Nisse kebab | kebab      |
      | Olof pizza  | Pizza      |
+     And the following rating exist
+     | rating | counter  | restaurant    |
+     | 3      | 30       | Nisse pizza   |
+     | 3      | 30       | Nisse kebab   |
+     | 3      | 30       | Olof pizza    |
 
    Scenario: select restaurant by category
      Given I am on the index page
