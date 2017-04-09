@@ -2,7 +2,6 @@ class ShoppingCartsController < ApplicationController
   before_action :get_shopping_cart
 
   def complete
-    @cartid = session[:cart_id]
     @cart.update(paid: 'true')
     session.delete(:cart_id)
   end
@@ -12,6 +11,7 @@ class ShoppingCartsController < ApplicationController
   end
 
   def rate
+    @rating = Rating.find_by(restaurant_id: params[:rest_id])
     if params[:rating]
       count = @rating.counter + 1
       if params[:rating][:rating].to_f > @rating.rating
@@ -28,7 +28,6 @@ class ShoppingCartsController < ApplicationController
   private
 
   def get_shopping_cart
-    @cartid = session[:cart_id]
     if session[:cart_id]
       @cart = ShoppingCart.find(session[:cart_id])
     else

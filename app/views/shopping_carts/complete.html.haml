@@ -1,15 +1,24 @@
 %h2 Thank you for your order
+%br
 - @cart.shopping_cart_items.each do |cart_item|
   = cart_item.item.name
-  %p Total:
-  = @cart.total
-  SEK
+  = cart_item.item.price
+  %br
+%p
+Total:
+= @cart.total
+SEK
 %br
-Rating
 %br
-= image_tag('rate_l.png')
-= @rating.rating.round(2)
 %br
-= form_for [@rating], url: rate_path(cart_id: @cartid),method: 'post' do |f|
-  = f.select(:rating, ['1','2','3','4','5'])
-  = f.submit "Rating"
+- @cart.shopping_cart_items.each do |cart_item|
+  = cart_item.item.menu.restaurant.name
+  %br
+  Current Rating
+  = cart_item.item.menu.restaurant.rating.rating.round(2)
+  - unless session[:rest_name] == cart_item.item.menu.restaurant.name
+    = form_for [@rating], :html => {class: cart_item.item.menu.restaurant.name} , url: rate_path(cart_id: @cart.id,rest_id: cart_item.item.menu.restaurant.id),method: 'post' do |f|
+      = f.select(:rating, ['1','2','3','4','5'])
+      = f.submit "Rating"
+      %br
+      %br
