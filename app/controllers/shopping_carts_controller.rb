@@ -12,7 +12,6 @@ class ShoppingCartsController < ApplicationController
   end
 
   def rate
-    @cartid = params[:cart_id]
     if params[:rating]
       count = @rating.counter + 1
       if params[:rating][:rating].to_f > @rating.rating
