@@ -16,9 +16,8 @@ SEK
   %br
   Current Rating
   = cart_item.item.menu.restaurant.rating.rating.round(2)
-  - unless session[:rest_name] == cart_item.item.menu.restaurant.name
-    = form_for [@rating], :html => {class: cart_item.item.menu.restaurant.name} , url: rate_path(cart_id: @cart.id,rest_id: cart_item.item.menu.restaurant.id),method: 'post' do |f|
-      = f.select(:rating, ['1','2','3','4','5'])
-      = f.submit "Rating"
-      %br
-      %br
+  = form_for [@rating], :html => {class: cart_item.item.menu.restaurant.name} , url: rate_path(cart_id: @cart.id,rest_id: cart_item.item.menu.restaurant.id),method: 'post' do |f|
+    = f.select(:rating, ['1','2','3','4','5'])
+    = f.submit "Rating"
+    %br
+    %br
