@@ -16,4 +16,10 @@ Rails.application.routes.draw do
       resources :dish, only: [:new, :create]
     end
   end
+
+  namespace :api do
+    namespace :v0 do
+      resources :ping, only: [:index], constraints: { format: 'json' }
+    end
+  end
 end
