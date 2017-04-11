@@ -10,17 +10,18 @@ Restaurant.delete_all
   food_style= FFaker::Food.meat
   description= FFaker::Sport.name
 
- Restaurant.create(name: name,
+ restaurant = Restaurant.create(name: name,
                    street: street,
                    zip_code: zip_code,
                    city: city,
                    food_style: food_style,
                    description: description)
 
-  menu = FactoryGirl.create(:menu, restaurant: Restaurant.first)
-  FactoryGirl.create(:dish, menu: menu, name: 'Burger')
-  FactoryGirl.create(:dish, menu: menu, name: 'Hot dog')
+  menu = Menu.create(name: "Kebabs", restaurant: restaurant)
+  Dish.create(name: "Kebabrulle", price: 9.99, description: "Awesome kebabrulle", category: "Main course", menu: menu)
 
 end
 
 puts "Created #{Restaurant.count} restaurants"
+puts "Created #{Menu.count} menus"
+puts "Created #{Dish.count} dishes"
