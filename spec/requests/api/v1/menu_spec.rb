@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::MenusController, type: :request do
 
-  describe 'GET /v1/restaurants' do
+  describe 'GET /v1/menus' do
     it 'should return menu name' do
       restaurant = create(:restaurant)
       create(:menu , restaurant: restaurant)
@@ -10,7 +10,7 @@ RSpec.describe Api::V1::MenusController, type: :request do
 
       expected_response = {
         'entries' => [{
-          'menu' => restaurant.menu.name
+          'name' => restaurant.menu.name
           }]
       }
 
