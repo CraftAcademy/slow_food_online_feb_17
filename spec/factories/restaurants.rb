@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :restaurant do
     name "Nisses"
-    street "MyString"
+    street "Vasagatan"
     zip_code 1
-    city "MyString"
-    food_style "MyString"
-    description "MyString"
+    city "Gothenburg"
+    food_style "Burgers"
+    description "Delicious"
   end
 end
