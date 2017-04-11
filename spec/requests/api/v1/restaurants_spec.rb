@@ -10,7 +10,8 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
       expected_response = {
         'entries' => [{
           'name' => restaurant.name, 'description' => restaurant.description
-        }]     }
+          }]
+      }
 
       expect(response_json).to eq expected_response
       expect(response.status).to eq 200
