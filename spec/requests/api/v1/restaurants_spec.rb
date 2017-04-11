@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::RestaurantsController, type: :request do
-  let(:restaurant) { FactoryGirl.create(:restaurant) }
+  let(:restaurant) { create(:restaurant) }
 
   describe 'GET /v1/restaurants' do
     it 'should return all the restaurants' do
@@ -10,7 +10,7 @@ RSpec.describe Api::V1::RestaurantsController, type: :request do
       expect(response.status).to eq 200
       expected_response = {
         'entries' => {
-          'id' => restaurant.id, 'Nisses' => restaurant.name, 'street' => restaurant.street,
+          'id' => restaurant.id, 'name' => restaurant.name, 'street' => restaurant.street,
           'zip_code' => restaurant.zip_code, 'city' => restaurant.city, 'food_style' => restaurant.food_style,
           'description' => restaurant.description
         }      }
