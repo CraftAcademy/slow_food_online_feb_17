@@ -8,10 +8,11 @@ class Restaurant < ApplicationRecord
 
   has_one :menu
   has_one :rating
+  after_create :start_rating
 
   private
 
   def start_rating
-    
+    Rating.create(restaurant: self , rating: 3.0 , counter: 30)
   end
 end

@@ -6,7 +6,6 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new restaurant_params
-    Rating.create(restaurant: @restaurant , rating: 3.0 , counter: 30)
     if @restaurant.save
       flash[:notice] = "Restaurant successfully created"
       render :show
