@@ -5,26 +5,16 @@ Given(/^the following rating exist$/) do |table|
   end
 end
 
-Given(/^I select "([^"]*)" from and "([^"]*)"$/) do |option, category|
-  within("//form[@class='NisseKebbab']") do
-    select option, from: category
+Given(/^I select "([^"]*)" from restaurant rating "([^"]*)"$/) do |option, name|
+  rest = Restaurant.find_by(name: name)
+  within(".rest-#{rest.id}") do
+    select option
   end
 end
 
-Then(/^I click on "([^"]*)"$/) do |button|
-  within("//form[@class='NisseKebbab']") do
-    click_button button
-  end
-end
-
-Given(/^I select "([^"]*)" from and"([^"]*)"$/) do |option, category|
-  within("//form[@class='AmberBurger']") do
-    select option, from: category
-  end
-end
-
-Then(/^I click on"([^"]*)"$/) do |button|
-  within("//form[@class='AmberBurger']") do
+Then(/^I click on "([^"]*)" for "([^"]*)"$/) do |button, name|
+  rest = Restaurant.find_by(name: name)
+  within(".rest-#{rest.id}") do
     click_button button
   end
 end

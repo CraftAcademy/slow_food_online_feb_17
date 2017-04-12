@@ -11,7 +11,7 @@ Restaurant.delete_all
   description= FFaker::Sport.name
 
 
-t = Restaurant.create(name: name,
+restaurant = Restaurant.create(name: name,
                    street: street,
                    zip_code: zip_code,
                    city: city,
@@ -21,7 +21,7 @@ t = Restaurant.create(name: name,
   menu = Menu.create(name: "Kebabs", restaurant: restaurant)
   Dish.create(name: "Kebabrulle", price: 9.99, description: "Awesome kebabrulle", category: "Main course", menu: menu)
 
- Rating.create(rating: 3.0, counter: 30, restaurant: t)
+ Rating.create(rating: 3.0, counter: 30, restaurant: restaurant)
 end
 
 puts "Created #{Restaurant.count} restaurants"
