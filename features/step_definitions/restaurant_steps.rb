@@ -21,9 +21,3 @@ Given(/^the following restaurant exist$/) do |table|
     create(:restaurant, name: hash[:name], description: hash[:description], street: hash[:street])
   end
 end
-
-Then(/^I should see "([^"]*)" start rating should be "([^"]*)"$/) do |name, rating|
-  restaurant = Restaurant.find_by(name: name)
-  rate = Rating.find_by(restaurant_id: restaurant)
-  expect(rate.rating).to eq rating.to_i
-end
