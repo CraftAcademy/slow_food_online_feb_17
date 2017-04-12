@@ -15,6 +15,7 @@ gem 'foundation-rails'
 gem 'acts_as_shopping_cart'
 gem 'rails-assets-gmaps', source: 'https://rails-assets.org'
 gem 'devise'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
   gem 'pry'
@@ -34,5 +35,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
