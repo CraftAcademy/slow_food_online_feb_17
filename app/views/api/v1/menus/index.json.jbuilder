@@ -1,3 +1,5 @@
 json.entries do
-  json.name  @menus.menu.name
+    json.array! @menus.each do |menu|
+        json.name  menu.menu.name
+    end
 end
