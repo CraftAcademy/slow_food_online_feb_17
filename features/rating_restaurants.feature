@@ -36,5 +36,4 @@ Feature: Rate restaurant on checkout page
       Then I should see "Rating 3.16"
       And I select "1" from and"rating_rating"
       And I click on"Rating"
-      Then show me the page
       Then I should see "Rating 2.97"
