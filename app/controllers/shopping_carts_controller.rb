@@ -1,5 +1,5 @@
 class ShoppingCartsController < ApplicationController
-  before_action :get_shopping_cart
+  before_action :get_shopping_cart, :get_rating
 
   def complete
     @cart.update(paid: 'true')
@@ -10,20 +10,6 @@ class ShoppingCartsController < ApplicationController
 
   end
 
-  def rate
-    @rating = Rating.find_by(restaurant_id: params[:rest_id])
-    if params[:rating]
-      count = @rating.counter + 1
-      if params[:rating][:rating].to_f > @rating.rating
-        rat = (params[:rating][:rating].to_f / count.to_f ) + @rating.rating
-      else
-        rat = @rating.rating - (params[:rating][:rating].to_f / count.to_f )
-      end
-      @rating.update(rating: rat , counter: count.to_i)
-    end
-    render :complete
-  end
-
   private
 
   def get_shopping_cart
@@ -32,6 +18,9 @@ class ShoppingCartsController < ApplicationController
     else
       @cart = ShoppingCart.find(params[:cart_id])
     end
+  end
+
+  def get_rating
     @rating = Rating.find_by(restaurant_id: @cart.shopping_cart_items[0].item.menu.restaurant.id)
   end
 end
