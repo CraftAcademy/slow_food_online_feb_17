@@ -15,3 +15,4 @@ dishes in cart.
       = form_tag(items_path, method: 'post') do
         = submit_tag('Buy')
         = hidden_field_tag(:dish_id, dish.id)
+      = link_to "Edit dish", edit_restaurant_menu_dish_path(@restaurant, @restaurant.menu, dish)

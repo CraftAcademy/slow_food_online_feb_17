@@ -20,7 +20,7 @@ Scenario: Add dish successfully
   And I fill in "dish_price" with "180"
   And I fill in "dish_description" with "Xtra All"
   And I select "Starter" from "Category"
-  Then I click "Add dish"
+  Then I click "Create Dish"
   Then I should see "A new dish has been added to Nisses Takeaway menu"
   And the "Pizza" dish is saved on the database
 
@@ -31,7 +31,7 @@ Scenario: Unsuccessful adding of dish
   And I fill in "dish_price" with " "
   And I fill in "dish_description" with "Xtra All"
   And I select "Starter" from "Category"
-  Then I click "Add dish"
+  Then I click "Create Dish"
   Then I should see "Please make sure to fill in all the fields correctly"
   And I should see "Price can't be blank"
   And the "Pizza" dish should not be on the system

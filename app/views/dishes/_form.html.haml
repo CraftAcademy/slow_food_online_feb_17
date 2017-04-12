@@ -1,6 +1,5 @@
 .row
   .medium-8.medium-centered
-    %h2 Add new dish to '#{@menu.name}' menu
     - if @dish.errors.any?
       .callout.small.alert
         %ul
@@ -8,8 +7,7 @@
         - @dish.errors.full_messages.each do |error|
           %li
             = error
-
-    = form_for [@menu.restaurant, @menu, @dish], url: restaurant_menu_dish_index_path do |f|
+    = form_for [ @menu.restaurant, @menu, @dish ] do |f|
       = f.label :name
       = f.text_field :name
       = f.label :price
@@ -18,4 +16,4 @@
       = f.text_area :description
       = f.label :category
       = f.select(:category , ['Starter','Main course','Dessert'])
-      = f.submit "Add dish", class: 'button expanded'
+      = f.submit nil, class: 'button expanded'

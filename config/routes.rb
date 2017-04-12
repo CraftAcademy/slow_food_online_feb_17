@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   resources :shopping_carts, only: [:show], as: :cart
   post "/complete", controller: :shopping_carts, action: :complete
 
-  resources :dish, only: [:show]
+  resources :dishes, only: [:show]
 
   resources :restaurants, only: [:show, :new, :create] do
     resources :menus, only: [:show] do
-      resources :dish, only: [:new, :create]
+      resources :dishes, only: [:new, :create, :edit, :update]
     end
   end
 
