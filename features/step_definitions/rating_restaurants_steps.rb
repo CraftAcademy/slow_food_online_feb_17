@@ -18,3 +18,10 @@ Then(/^I click on "([^"]*)" for "([^"]*)"$/) do |button, name|
     click_button button
   end
 end
+
+Then(/^I should see "([^"]*)"s "([^"]*)"$/) do |name, rating|
+  rest = Restaurant.find_by(name: name)
+  within(".rest-#{rest.id}") do
+    expect(page).to have_content rating
+  end
+end

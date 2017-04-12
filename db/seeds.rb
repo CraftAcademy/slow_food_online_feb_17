@@ -21,7 +21,6 @@ restaurant = Restaurant.create(name: name,
   menu = Menu.create(name: "Kebabs", restaurant: restaurant)
   Dish.create(name: "Kebabrulle", price: 9.99, description: "Awesome kebabrulle", category: "Main course", menu: menu)
 
- Rating.create(rating: 3.0, counter: 30, restaurant: restaurant)
 end
 
 puts "Created #{Restaurant.count} restaurants"

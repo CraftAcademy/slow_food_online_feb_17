@@ -16,10 +16,6 @@ Feature: Rate restaurant on checkout page
     | name       | price | menu            |
     | Kebabrulle | 180   | Nisses Takeaway |
     | Burger     | 190   | Tasty burgers   |
-   And the following rating exist
-    | rating | counter  | restaurant    |
-    | 3      | 30       | NisseKebbab   |
-    | 3      | 30       | AmberBurger   |
 
     Scenario: I complete payment and receive a receipt
       Given I am on the restaurant menu page for "Nisses Takeaway"
@@ -30,7 +26,7 @@ Feature: Rate restaurant on checkout page
       And I click "Finalize order"
       And I select "5" from restaurant rating "NisseKebbab"
       And I click on "Rating" for "NisseKebbab"
-      Then I should see "Rating 3.16"
+      Then I should see "NisseKebbab"s "Rating 3.16"
       And I select "1" from restaurant rating "AmberBurger"
       And I click on "Rating" for "AmberBurger"
-      Then I should see "Rating 2.97"
+      Then I should see "AmberBurger"s "Rating 2.97"
