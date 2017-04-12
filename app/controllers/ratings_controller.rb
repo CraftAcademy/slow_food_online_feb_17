@@ -14,14 +14,4 @@ class RatingsController < ApplicationController
     end
     render "shopping_carts/complete"
   end
-
-  private
-
-  def get_shopping_cart
-    if session[:cart_id]
-      @cart = ShoppingCart.find(session[:cart_id])
-    else
-      @cart = ShoppingCart.find(params[:cart_id])
-    end
-  end
 end
