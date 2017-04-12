@@ -19,13 +19,3 @@ RSpec.describe Api::V1::MenusController, type: :request do
     end
   end
 end
-
-
-# In your controllers
-#
-# GET `new` ==> to generate a new instance of an resources [Opens a view that has a form we can use to create that resource]
-# POST `create` ==> Used to create the resource
-# GET `index` ==> To return all instances of the resource
-# GET `show` => To return a single instance of the resource (Will usually take as a parameter the id of the instance we're looking for)
-# POST/PATH `update` ==> Updating an instance of the resource
-# DELETE `destroy` ==> Deletes an instance of the resource
