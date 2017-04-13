@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :shopping_carts, only: [:show], as: :cart
   post "/complete", controller: :shopping_carts, action: :complete
-  post "/complete/:id", controller: :ratings, action: :rate, as: :rate
+  post "/complete/:id", controller: :ratings, action: :update, as: :update
   resources :dish, only: [:show]
 
   resources :restaurants, only: [:show, :new, :create] do

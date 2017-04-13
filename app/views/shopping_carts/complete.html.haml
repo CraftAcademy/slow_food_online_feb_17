@@ -17,7 +17,7 @@ SEK
     %br
     Current Rating
     = cart_item.item.menu.restaurant.rating.rating.round(2)
-    = form_for @rating, url: rate_path(cart_id: @cart.id,id: cart_item.item.menu.restaurant.id),method: 'post' do |f|
+    = form_for @rating, url: update_path(cart_id: @cart.id,id: cart_item.item.menu.restaurant.id),method: 'post' do |f|
       = f.select(:rating, Rating.rating_range)
       = f.submit "Rating"
       %br
