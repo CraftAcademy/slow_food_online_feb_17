@@ -12,11 +12,9 @@ Rails.application.routes.draw do
   post "/complete", controller: :shopping_carts, action: :complete
   post "/complete/:id", controller: :ratings, action: :update, as: :update
 
-  resources :dish, only: [:show]
-
   resources :restaurants, only: [:show, :new, :create] do
     resources :menus, only: [:show] do
-      resources :dish, only: [:new, :create]
+      resources :dish, only: [:new, :create, :show, :edit, :update, :destroy]
     end
   end
 

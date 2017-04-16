@@ -20,3 +20,19 @@ Then(/^the "([^"]*)" dish should not be on the system$/) do |dish_name|
   dish = Dish.find_by(name: dish_name)
   expect(dish).to be_nil
 end
+
+Given(/^I am on the restaurant "([^"]*)" delete dish page$/) do |restaurant_name|
+  restaurant = Restaurant.find_by(name: restaurant_name)
+  menu = restaurant.menu
+  visit  restaurant_menu_dish_path(restaurant, menu)
+end
+
+Then(/^the dish name in the system should now be "([^"]*)"$/) do |dish_name|
+  dish = Dish.find_by(name: dish_name)
+  expect(dish).to be_nil
+end
+
+Then(/^the dish name should still be "([^"]*)" in the system$/) do |dish_name|
+  dish = Dish.find_by(name: dish_name)
+  expect(dish).not_to be_nil
+  end

@@ -20,8 +20,19 @@ class DishController < ApplicationController
     end
   end
 
-  private
+  def destroy
+    @menu = Menu.find(params[:menu_id])
+    @dish = Dish.find(params[:id])
+    if @dish.destroy(dish_params)
+      flash[:notice] = 'Are you sure you want to delete this dish?'
+      flash[:notice] = "#{@dish.name} details successfully deleted"
+        redirect_to restaurant_menu_path(@menu.restaurant, @menu)
+      else
+        render 'delete'
+      end
+  end
 
+  private
   def dish_params
     params.require(:dish).permit(:name,
                                  :price,
