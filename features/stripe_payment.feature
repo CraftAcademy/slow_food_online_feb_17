@@ -26,12 +26,12 @@ Feature: As a User
 
   @javascript @stripe
   Scenario: Redirects to carts page on error
-  Given I register as a user with username "Fabian" and email "fabian@random.com"
-  Given I am on the restaurant menu page for "Nisses Takeaway"
-  And I click "Buy" on "Kebabrulle"
-  And I click "Checkout"
-  When I click the "Pay with Card" stripe button
-  And I fill in my card details on the stripe form
-  And I check out but my card is declined
-  And I should be on the checkout page
-  Then I should see "The card was declined Please try again"
+    Given I register as a user with username "Fabian" and email "fabian@random.com"
+    Given I am on the restaurant menu page for "Nisses Takeaway"
+    And I click "Buy" on "Kebabrulle"
+    And I click "Checkout"
+    When I click the "Pay with Card" stripe button
+    And I fill in my card details on the stripe form
+    And I check out but my card is declined
+    And I should be on the checkout page
+    Then I should see "The card was declined Please try again"
