@@ -6,16 +6,23 @@ Rails.application.routes.draw do
 
   resources :shopping_cart_items, only: [:create], as: :items
 
-
   resources :shopping_carts, only: [:show], as: :cart
   get '/complete', controller: :shopping_carts, action: :complete
   post '/charges', controller: :shopping_carts, action: :create
+  post "/complete", controller: :shopping_carts, action: :complete
+  post "/complete/:id", controller: :ratings, action: :update, as: :update
 
   resources :dish, only: [:show]
 
   resources :restaurants, only: [:show, :new, :create] do
     resources :menus, only: [:show] do
       resources :dish, only: [:new, :create]
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :restaurants, only: [:index, :show], defaults: { format: 'json' }
     end
   end
 end

@@ -6,7 +6,6 @@
 = @cart_nr
 dishes in cart.
 %h3 Our fine dishes
-%h2 Category
 - @restaurant.menu.dishes.distinct.pluck(:category).uniq.each do |category|
   %h3= category
   - @restaurant.menu.dishes.where(category: category).each do |dish|
@@ -16,5 +15,3 @@ dishes in cart.
       = form_tag(items_path, method: 'post') do
         = submit_tag('Buy')
         = hidden_field_tag(:dish_id, dish.id)
-- if session[:cart_id]
-  = link_to 'Checkout', cart_path(session[:cart_id]), class: 'Checkout'

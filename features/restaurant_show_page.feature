@@ -10,11 +10,10 @@ Feature: Restaurant show page
     Given the following menus exist
      | name            | restaurant  |
      | Nisses Takeaway | NisseKebbab |
-
+  
   Scenario:
     Given I am on the index page
     When I click "NisseKebbab"
-    Then I should see "Restaurant"
     And I should see "NisseKebbab"
     And I should see "God Kebib med såååås"
     And I should see "Kebabvägen 1"

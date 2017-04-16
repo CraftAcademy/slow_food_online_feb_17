@@ -27,5 +27,11 @@ module SlowFoodOnlineFeb17
       generate.controller_specs false
     end
     config.stripe.publishable_key = ENV['PUBLISHABLE_KEY']
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post]
+      end
+    end
   end
 end

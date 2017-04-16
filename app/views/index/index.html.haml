@@ -3,15 +3,26 @@
 %script{ src: 'http://maps.google.com/maps/api/js?sensor=tru', type: 'text/javascript'}
 %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.25/gmaps.js' }
 = javascript_include_tag 'landing_page'
-
-%h1 List Of Restaurants
-%h3 List of food category
+%br
+%h2 What´s your food style?
 = form_tag select_category_path, method: 'post' do |f|
-  =select('post', "category", @restaurants.distinct.pluck(:food_style) {|p| [ p.id , p.food_style ] }, {prompt: 'List of food category'})
+  =select('post', "category", @restaurants.distinct.pluck(:food_style) {|p| [ p.id , p.food_style ] }, {prompt: 'Choose your style of food!'})
   = submit_tag 'Submit'
-%ul
-  - @restaurants.each do |restaurant|
-    %li
-      = restaurant.name
+%br
+.row
+  .large-3.columns
+    %h4 List of Restaurants
+  .large-9.columns
+    %h4 Rating
+.row
+  .large-3.columns
+  .large-9.columns
+    = image_tag('rate_l.png')
+- @restaurants.each do |restaurant|
+  .row
+    .large-3.columns
       = link_to restaurant.name, restaurant_path(restaurant)
+    .large-9.columns
+      =image_tag('bar2.png',style:"height: 10px; width: #{restaurant.rating.rating.round(0).to_i * 28}px;")
+      =image_tag('bar.png',style:"height: 10px; width: #{168 - (restaurant.rating.rating.round(0).to_i * 28)}px;")
       %br/
