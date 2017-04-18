@@ -10,12 +10,12 @@ class ShoppingCartItemsController < ApplicationController
 
  private
 
- def get_shopping_cart
-   if session[:cart_id]
+  def get_shopping_cart
+    if session[:cart_id]
      @cart = ShoppingCart.find(session[:cart_id])
-   else
+    else
      @cart = ShoppingCart.create
      session[:cart_id] = @cart.id
-   end
- end
+    end
+  end
 end

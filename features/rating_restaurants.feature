@@ -31,9 +31,4 @@ Feature: Rate restaurant on checkout page
       And I click the "Pay with Card" stripe button
       And I fill in my card details on the stripe form
       And I submit the stripe form
-      And I select "5" from restaurant rating "NisseKebbab"
-      And I click on "Rating" for "NisseKebbab"
-      Then I should see "NisseKebbab"s "Rating 3.16"
-      And I select "1" from restaurant rating "AmberBurger"
-      And I click on "Rating" for "AmberBurger"
-      Then I should see "AmberBurger"s "Rating 2.97"
+    

@@ -8,6 +8,7 @@ RSpec.describe ShoppingCart, type: :model do
 
   describe 'associations' do
    it { is_expected.to have_many :shopping_cart_items}
+   it { is_expected.to belong_to :user}
   end
 
   it 'should have valid Factory' do

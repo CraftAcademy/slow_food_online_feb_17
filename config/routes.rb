@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root controller: :index, action: :index
   post '/', controller: :index, action: :select_category, as: :select_category
-
   resources :shopping_cart_items, only: [:create], as: :items
+  resources :index, only: [:show], as: :show
 
   resources :shopping_carts, only: [:show], as: :cart
   get '/complete', controller: :shopping_carts, action: :complete

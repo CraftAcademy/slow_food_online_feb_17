@@ -1,6 +1,7 @@
 class Rating < ApplicationRecord
   validates_presence_of :rating, :counter
   belongs_to :restaurant
+  has_many :userrates
 
   def self.rating_range
     ['1','2','3','4','5']

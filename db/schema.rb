@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406140542) do
+ActiveRecord::Schema.define(version: 20170416134344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,9 @@ ActiveRecord::Schema.define(version: 20170406140542) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "restaurant_id"
+    t.integer  "userrate_id"
     t.index ["restaurant_id"], name: "index_ratings_on_restaurant_id", using: :btree
+    t.index ["userrate_id"], name: "index_ratings_on_userrate_id", using: :btree
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -70,6 +72,18 @@ ActiveRecord::Schema.define(version: 20170406140542) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "paid",       default: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_shopping_carts_on_user_id", using: :btree
+  end
+
+  create_table "userrates", force: :cascade do |t|
+    t.boolean  "check"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "rating_id"
+    t.index ["rating_id"], name: "index_userrates_on_rating_id", using: :btree
+    t.index ["user_id"], name: "index_userrates_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,12 +100,19 @@ ActiveRecord::Schema.define(version: 20170406140542) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "userrate_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["userrate_id"], name: "index_users_on_userrate_id", using: :btree
   end
 
   add_foreign_key "dishes", "menus"
   add_foreign_key "menus", "restaurants"
   add_foreign_key "ratings", "restaurants"
+  add_foreign_key "ratings", "userrates"
   add_foreign_key "shopping_cart_items", "shopping_carts"
+  add_foreign_key "shopping_carts", "users"
+  add_foreign_key "userrates", "ratings"
+  add_foreign_key "userrates", "users"
+  add_foreign_key "users", "userrates"
 end
